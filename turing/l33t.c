@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int i = 0;
+    int i=0;
     char string[50];
 
     printf("Enter your string: ");
@@ -10,18 +10,30 @@ int main() {
 
     while (string[i]!='\0') {
 
-        if (string[i]=='a') {
+        switch (string[i]) {
 
-            string[i]='4';
-
-        } else if (string[i]=='i') {
+        case 'A':
+        case 'a':
+                string[i]='4';
+                break;
+        case 'I':
+        case 'i':
                 string[i]='1';
-        } else if (string[i]=='e') {
+                break;
+        case 'E':
+        case 'e':
                 string[i]='3';
-        } else if (string[i]=='t') {
+                break;
+        case 'T':
+        case 't':
                 string[i]='7';
-        } else if (string[i]=='o') {
+                break;
+        case 'O':
+        case 'o':
                 string[i]='0';
+                break;
+        default:
+                break;
         }
         i++;
     }
