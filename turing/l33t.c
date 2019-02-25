@@ -1,42 +1,42 @@
 #include <stdio.h>
 
 int main() {
-    int i=0;
+    int i = 0;
     char string[50];
 
     printf("Enter your string: ");
 
-    fgets(string,50,stdin);
+    fgets(string, 50, stdin);
 
-    while (string[i]!='\0') {
+    while (string[i] != '\0') {
 
         switch (string[i]) {
 
         case 'A':
         case 'a':
-                string[i]='4';
+                string[i] = '4';
                 break;
         case 'I':
         case 'i':
-                string[i]='1';
+                string[i] = '1';
                 break;
         case 'E':
         case 'e':
-                string[i]='3';
+                string[i] = '3';
                 break;
         case 'T':
         case 't':
-                string[i]='7';
+                string[i] = '7';
                 break;
         case 'O':
         case 'o':
-                string[i]='0';
+                string[i]=  '0';
                 break;
         default:
                 break;
         }
         i++;
     }
-    printf("Your string in 1337: %s\n", string);
+    printf("Your string in 1337: %s", string);
     return 0;
 }
