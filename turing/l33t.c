@@ -30,7 +30,7 @@ int main() {
                 break;
         case 'O':
         case 'o':
-                string[i]=  '0';
+                string[i] = '0';
                 break;
         default:
                 break;
