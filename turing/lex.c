@@ -1,3 +1,24 @@
+/* Fordításhoz:
+$ lex -t lex.c
+$ gcc lex.c -o lex -lfl
+$ ./lex
+
+Output:
+Type * to show stats.
+Enter your string: ez 1 sor b
+ez 1 sor
+Word: ez
+Single-digit Number: 1
+Word: sor
+Letter: b
+
+*
+Numbers: 1
+Words: 2
+Letters: 7
+Meta-characters: 0
+*/
+
 %{
 #include <string.h>
 int letter_count = 0, word_count = 0, number_count = 0, metacharacter_count = 0, stat = 0;
@@ -14,7 +35,7 @@ int letter_count = 0, word_count = 0, number_count = 0, metacharacter_count = 0,
 [*] {++stat; printf("Numbers: %d\nWords: %d\nLetters: %d\nMeta-characters: %d\n",number_count,word_count,letter_count,metacharacter_count);}
 %%
 int main() {
-        printf("Type * to show stat.\nEnter your string: ");
+        printf("Type * to show stats.\nEnter your string: ");
         yylex();
         return 0;
 }
