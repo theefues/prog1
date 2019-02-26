@@ -1,3 +1,4 @@
+/* nem saját kód */
 #include <stdio.h>
 #include <curses.h>
 #include <unistd.h>
