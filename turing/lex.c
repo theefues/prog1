@@ -1,6 +1,6 @@
 /* Fordításhoz:
-$ lex -t lex.c
-$ gcc lex.c -o lex -lfl
+$ lex -t lex.c > lex_l.c
+$ gcc lex_l.c -o lex -lfl
 $ ./lex
 
 Output:
