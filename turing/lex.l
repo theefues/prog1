@@ -17,6 +17,10 @@ Numbers: 1
 Words: 2
 Letters: 7
 Meta-characters: 0
+
+CTRL+D
+All occured numbers: 1
+$
 */
 
 %{
@@ -37,5 +41,6 @@ int letter_count = 0, word_count = 0, number_count = 0, metacharacter_count = 0,
 int main() {
         printf("Type * to show stats.\nEnter your string: ");
         yylex();
+        printf("All occured numbers: %d\n", number_count);
         return 0;
 }
