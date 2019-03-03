@@ -4,9 +4,9 @@ int main(int argc, char **argv) {
     if(argc < 2) {
             printf("error: no input file, changing to manual input\n");
             int i = 0;
-            char string[50];
+            char string[500];
             printf("Enter your string: ");
-            fgets(string, 50, stdin);
+            fgets(string, 500, stdin);
             while (string[i] != '\0') {
                 switch (string[i]) {
                     case 'A':
@@ -39,7 +39,6 @@ int main(int argc, char **argv) {
                 i++;
             }
             printf("Your string in 1337: %s", string);
-            fclose(stri);
             return 0;
     } else {
             int i = 0;
