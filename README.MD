@@ -1,4 +1,4 @@
 # Prog1 repó
 
-https://fgtsrv.tk/ftp/bhax_textbook/bhax-textbook-fdl.pdf // Legenerált legrfrissebb PDF  
-https://fgtsrv.tk/ftp/bhax_textbook/ // Forrásfájlok ZIP-es letöltéssel
+https://fgtsrv.tk/ftp/theefues/bhax-textbook-fdl.pdf // Legenerált legrfrissebb PDF  
+https://fgtsrv.tk/ftp/theefues/ // Forrásfájlok ZIP-es letöltéssel
