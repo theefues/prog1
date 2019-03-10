@@ -57,11 +57,9 @@
 .	{
 	  
 	  int found = 0;
-	  for(int i=0; i<L337SIZE; ++i)
-	  {
+	  for(int i=0; i<L337SIZE; ++i) {
 	  
-	    if(l337d1c7[i].c == tolower(*yytext))
-	    {
+	    if(l337d1c7[i].c == tolower(*yytext)) {
 	    
 	      int r = 1+(int) (100.0*rand()/(RAND_MAX+1.0));
 	    
@@ -85,9 +83,7 @@
 	  
 	}
 %%
-int 
-main()
-{
+int main() {
   srand(time(NULL)+getpid());
   yylex();
   return 0;
