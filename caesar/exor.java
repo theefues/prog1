@@ -20,7 +20,7 @@ public class ExorTitkosito {
                 
             }
             
-            kimenőCsatorna.write(buffer, 0, olvasottBajtok);
+            kimenoCsatorna.write(buffer, 0, olvasottBajtok);
             
         }
         
