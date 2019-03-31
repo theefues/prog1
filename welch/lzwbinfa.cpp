@@ -286,8 +286,8 @@ private:
                 os << "---";
 	// ez a postorder bejáráshoz képest
             // 1-el nagyobb mélység, ezért -1
+		   kiir ( elem->nullasGyermek (), os);
             os << elem->getBetu () << "(" << melyseg - 1 << ")" << std::endl;
-            kiir ( elem->nullasGyermek (), os);
 			kiir ( elem->egyesGyermek (), os);
 			--melyseg;
 
