@@ -93,8 +93,6 @@ public:
     {
         szabadit (gyoker->egyesGyermek ());
         szabadit (gyoker->nullasGyermek ());
- 
-        delete gyoker;
     }
  
     /* Tagfüggvényként túlterheljük a << operátort, ezzel a célunk, hogy felkeltsük a
