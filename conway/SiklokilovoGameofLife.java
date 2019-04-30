@@ -1,4 +1,3 @@
-//Nem sajÃ¡t kÃ³d!
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
