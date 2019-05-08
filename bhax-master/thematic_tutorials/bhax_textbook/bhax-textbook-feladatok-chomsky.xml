@@ -14,11 +14,54 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása:   <link xlink:href="https://github.com/theefues/prog1/blob/master/chomsky/decun.c">https://github.com/theefues/prog1/blob/master/chomsky/decun.c</link>     
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>
+        <para>Tutorált: Dankó Zsolt</para>
+        <para>Fordítás: gcc decun.c -o decun</para>
+        <para>Futtatás: ./decun</para>
+        <para>Az unáris a legegyszerűbb számrendszer. Csak természetes számok ábrázolására alkalmazható, tehát tört számokat nem lehet vele leírni. Egy szám  (szám * pálcika) darab pálcika segítségével írható fel, a könnyebb átláthatóság érdekében
+        öt pálcikánkénti jelöléssel, ami a programban a szóköz lesz. Például az egy unárisan |, a kettő ||, a nyolc ||||| ||| és így tovább.</para>
+        <figure>
+            <title>A progam működése</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/dcun.png" />
+                </imageobject>
+            </mediaobject>
+        </figure>
+        <programlisting language='c'><![CDATA[
+#include <stdio.h>
+
+int main() {
+        int szam;
+        printf("Adj meg egy számot: ");
+        if (scanf("%d", &szam)) {
+                for(int i = 0; i < szam; i++){
+                        if(i % 5 == 0 && i != 0)
+                        printf(" ");
+
+                        printf("|");
+                }
+                printf("\n");
+        } else {
+                printf("Kérlek, számot adj meg.\n");
+        }
+}
+        
+        ]]></programlisting>
+        <para>Bekérjük a szam változóba a számunkat, majd megvizsgáljuk, hogy tényleg szám-e. Ha nem, hibát írunk ki, ha igen, annyi pálcikát íratunk ki for ciklus segítségével, amennyi a szám értéke. Közben folyamatosan figyeljök, hogy 5 pálcikánként raknunk kell egy szóközt, ami a for ciklus
+        i változójának 5-tel való osztásának maradékával számítható ki. Ha a maradék 0, szóközt rakunk. Ha nem, pálcikát.</para>
+        <figure>
+            <title>A progam működés közben</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/decun.png" />
+                </imageobject>
+            </mediaobject>
+        </figure>
     </section>        
         
     <section>
@@ -35,6 +78,16 @@
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+        
+        <para>
+            Passzolva, +1 passzolási lehetőség az SMNIST miatt:</para>
+            <para>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/proof.png" scale="35"/>
+                </imageobject>
+            </mediaobject>
+        </para>
     </section>        
                 
     <section>
@@ -48,11 +101,27 @@
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása:  
+            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/chomsky/c89.c99">https://github.com/theefues/prog1/blob/master/chomsky/c89.c99</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>
+        <para>Az utasítások a leírásuk sorrendjében hajtódnak végre, kivéve akkor, ha valahol jelezzük a kívánr sorrendet. Többféle utasításfajta létezik, például:</para>
+        <para>Összetett utasítás: Néhány programkörnyezetben a fordítóprogram csak egy utasítást fogad el. Erre jók az összetett utasítások, amik több utasítást fűznek össze eggyé.</para>
+        <para>Iterációs utasítás: Egy ciklust határoznak meg.</para>
+        <para>Vezérlésátadó utasítások: A vezérlés feltétel nélküli átadására használatosak.</para>
+        <para></para>
+        <para>A for ciklus szintaktikája C89-ben és C99-ben különbözik.</para>
+        <para>A már jól ismert</para>
+        <programlisting language="c"><![CDATA[
+        for(int i = 0; i < 8; i++) 
+        ]]></programlisting>
+        <para>nem fordul le C89-ben, mivel ott az int i-t a cikluson kívül kell dekralálni, tehát így:</para>
+        <programlisting language="c"><![CDATA[
+        int i;
+        for(i = 0; i < 8; i++) 
+        ]]></programlisting>
+        <para>Tutor: Dankó Zsolt</para>
     </section>                     
 
     <section>
@@ -66,12 +135,56 @@
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása:  
+            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/chomsky/lex.l">https://github.com/theefues/prog1/blob/master/chomsky/lex.l</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>
-    </section>                     
+        	<para>Tutorált: Dankó Zsolt</para>
+        <para>Lexelés: lex -t lex.c > lex_l.c</para>
+        <para>Fordítás: gcc lex_l.c -o lex</para>
+        <para>Futtatás: ./lex</para>
+		<para>A megoldás nagyon egyszerű volt: meg kellett modnanunk a lexerünknek, hogy miként kategorizálja az egyes karaktereket, illetve stringrészeket. Én a számszámoláson kívül raktam még bele több felismerést is.</para>
+    <programlisting language="c"><![CDATA[
+%{
+#include <string.h>
+int letter_count = 0, word_count = 0, number_count = 0, metacharacter_count = 0, stat = 0;
+%}
+%%
+[0-9]   {++number_count; printf("Single-digit Number: %s\n",yytext);}
+[a-zA-ZöüóőúűáéíÖÜÓŐÚÉÁŰÍ]      {++word_count; printf("Letter: %s\n",yytext);}
+[0-9]+  {++number_count; printf("Multi-digit Number: %s\n",yytext);}
+[0-9]+\.[0-9]+? {++number_count;
+        printf("Fraction: %s\n",yytext);}
+[a-zA-Z0-9öüóőúűáéíÖÜÓŐÚÉÁŰÍ][a-zA-Z0-9öüóőúűáéíÖÜÓŐÚÉÁŰÍ]*     {++word_count; letter_count += strlen(yytext); printf("Word: %s\n",yytext);}
+[\-/._,$><'"+:=?!%()#&@] {++metacharacter_count;
+                printf("Meta-character: %s\n", yytext);}
+[*] {++stat; printf("Numbers: %d\nWords: %d\nLetters: %d\nMeta-characters: %d\n",number_count,word_count,letter_count,metacharacter_count);}
+%%
+int main() {
+        printf("Type * to show stat.\nEnter your string: ");
+        yylex();
+        printf("All occured numbers: %d\n", number_count);
+        return 0;
+
+}]]></programlisting>
+<para>A fentebbi kódrészlet így értelmezhető: a %{-en belül includeoljuk a C nyelvben már ismert könyvtárat, majd felvesszük a változóinkat, amik számolni fogják nekünk, melyik karakterekből, illetve szavakból mennyi fordult elő.
+		A %% utáni rész a lényeg. Itt megadjuk a lexerünknek reguláris kifejezések segítségével, hogy milyen karaktercsoportokra mit adjon válaszul. Az első az egyjegyű számokat veszi figyelembe, tehát ami 0-9 között előfordul.
+		A második a - magyar nyelv magánhangzóit is belevéve - betűket figyeli. Azokat a karaktereket, amelyek a felsorolásban szerepelnek, de nem áll sem előttük, sem utánuk semmi a szóközön kívül.
+		A harmadik a többjegyű számokat figyeli, míg a negyedik a törtszámokat. Ez lehet például 3.14, de lehet a 21412412412.345436346 is. Nem számít, hány jegy áll a pont előtt vagy után.
+		Az ötödik a szavakat veszi figyelembe. Azokat az egymás után következő karaktereket, amik nem számok és nem is metakarakterek. A 4 például egy szám, de a P4 már szó.
+		Az utolsó, azaz a csillag pedig kiíratja a statunkat, hogy a jel beírásáig hol tartanak az egyes számlálóink. Ezzel nem kell CTRL+D-vel lezárnunk a programunkat, hogy megtudjuk, mennyi számunk van eddig.
+		Az mainen belül pedig felvesszük az yylex() függvényt, ami a kódunk lexelése és fordítása után műküdtetni fogja a gépezetet.</para> 
+		 <figure>
+            <title>A progam működés közben</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/lex.png" />
+                </imageobject>
+            </mediaobject>
+        </figure>
+
+	</section>                     
 
     <section>
         <title>l33t.l</title>
@@ -82,12 +195,129 @@
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása:  
+            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/chomsky/l33t.l">https://github.com/theefues/prog1/blob/master/chomsky/l33t.l</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>
-    </section>                     
+	<para>Össze kell állítanunk egy olyan .l fájlt, amit a lexer értelmezni tud. Első sorban includeolnunk kell a könyvtárakat, amiket használni fogunk a későbbiekben, majd defineolnunk kell a L337SIZE-t, ami elosztja a 
+	l337dlc7 tömb méretét a cipher struktúra méretével, ezzel megkapjuk a string hosszát.</para>
+	<programlisting language="c"><![CDATA[
+%{
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <time.h>
+  #include <ctype.h>
+
+  #define L337SIZE (sizeof l337d1c7 / sizeof (struct cipher))
+]]></programlisting>
+	<para>Ez után felvesszük a fentebb említett tömböt és struktúrát. A cipheren belül a c char típusú változó az adott stringet fogja tárolni, a leet pointer pedig a 1337dlc7 tömbből az adott karakter leet megfelelőjét.
+	Felvesszük a l337dlc7 nem előre definiált méretű tömb értékeit, vagyis az angol ábécé minden betűjéhez hozzárendel 4 karaktert, amiből random választ majd egyet nekünk a lexer.</para>
+<programlisting language="c"><![CDATA[    
+  struct cipher {
+    char c;
+    char *leet[4];
+  } l337d1c7 [] = {
+
+  {'a', {"4", "4", "@", "/-\\"}},
+  {'b', {"b", "8", "|3", "|}"}},
+  {'c', {"c", "(", "<", "{"}},
+  {'d', {"d", "|)", "|]", "|}"}},
+  {'e', {"3", "3", "3", "3"}},
+  {'f', {"f", "|=", "ph", "|#"}},
+  {'g', {"g", "6", "[", "[+"}},
+  {'h', {"h", "4", "|-|", "[-]"}},
+  {'i', {"1", "1", "|", "!"}},
+  {'j', {"j", "7", "_|", "_/"}},
+  {'k', {"k", "|<", "1<", "|{"}},
+  {'l', {"l", "1", "|", "|_"}},
+  {'m', {"m", "44", "(V)", "|\\/|"}},
+  {'n', {"n", "|\\|", "/\\/", "/V"}},
+  {'o', {"0", "0", "()", "[]"}},
+  {'p', {"p", "/o", "|D", "|o"}},
+  {'q', {"q", "9", "O_", "(,)"}},
+  {'r', {"r", "12", "12", "|2"}},
+  {'s', {"s", "5", "$", "$"}},
+  {'t', {"t", "7", "7", "'|'"}},
+  {'u', {"u", "|_|", "(_)", "[_]"}},
+  {'v', {"v", "\\/", "\\/", "\\/"}},
+  {'w', {"w", "VV", "\\/\\/", "(/\\)"}},
+  {'x', {"x", "%", ")(", ")("}},
+  {'y', {"y", "", "", ""}},
+  {'z', {"z", "2", "7_", ">_"}},
+  
+  {'0', {"D", "0", "D", "0"}},
+  {'1', {"I", "I", "L", "L"}},
+  {'2', {"Z", "Z", "Z", "e"}},
+  {'3', {"E", "E", "E", "E"}},
+  {'4', {"h", "h", "A", "A"}},
+  {'5', {"S", "S", "S", "S"}},
+  {'6', {"b", "b", "G", "G"}},
+  {'7', {"T", "T", "j", "j"}},
+  {'8', {"X", "X", "X", "X"}},
+  {'9', {"g", "g", "j", "j"}}
+
+  };
+  
+%}
+]]></programlisting>
+	<para>Ha ezzel megvagyunk, fel kell vennünk a szabályokat, hogy mivel mit csináljon a lexer. Mivel nem szavakat keresünk, hanem karaktereket szeretnénk átírni leet-re, ezért elég, ha csak a .-nak, azaz egy, bármilyen tetszőleges
+	karakterhez rendelünk szabályt. Felvesszük a found integer változót, majd létrehozunk egy for ciklust, ami végig fog menni a stringünk minden karakterén, és a szabálynak megfelelően helyettesíti be őket a tömbben már 
+	deklarált értékre. A cikluson belül felveszünk egy if függvényt, ami megnézi, hogy a karakterünk szerepel-e a tömbben, és egy r random változót, ami 0 és 100 között generál egy számot. Ez abban lesz segítségünkre, hogy eldöntse, a tömb melyik elemére cseréljük ki a karakterünket. 
+	Pl. ha az r kisebb, mint 91, akkor a tömb első, azaz a [0] elemét válassza ki. Az a betű esetében ez a 4-es lesz. Ha a szám 95-nél kisebb, akkor a második elemét és így tovább.
+	Ha végzett ezzel, átírja a found változó értékét 1-re, tehát nem üresjáratban ment a for ciklusunk, hanem talált is valami neki megfelelőt az inputból.
+	Ennél fogva, ha found nem 0, írja ki, milyen a már átalakított stringünk.</para>
+	<programlisting language="c"><![CDATA[
+%%
+.	{
+	  
+	  int found = 0;
+	  for(int i=0; i<L337SIZE; ++i)
+	  {
+	  
+	    if(l337d1c7[i].c == tolower(*yytext))
+	    {
+	    
+	      int r = 1+(int) (100.0*rand()/(RAND_MAX+1.0));
+	    
+          if(r<91)
+	        printf("%s", l337d1c7[i].leet[0]);
+          else if(r<95)
+	        printf("%s", l337d1c7[i].leet[1]);
+	      else if(r<98)
+	        printf("%s", l337d1c7[i].leet[2]);
+	      else 
+	        printf("%s", l337d1c7[i].leet[3]);
+
+	      found = 1;
+	      break;
+	    }
+	    
+	  }
+	  
+	  if(!found)
+	     printf("%c", *yytext);	  
+	  
+	}
+]]></programlisting>
+	<para>A mainen belül pedig csak simán behívjuk a yylex() függvényt, majd egy retrun 0-át, hogy a program sikeresen lefutott</para>
+    <programlisting language="c"><![CDATA[
+int main()
+{
+  srand(time(NULL)+getpid());
+  yylex();
+  return 0;
+}
+]]></programlisting>
+		 <figure>
+            <title>A progam működés közben</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/l33t.png" />
+                </imageobject>
+            </mediaobject>
+        </figure>
+	</section>                     
 
 
     <section>
@@ -144,7 +374,7 @@
             </listitem>
         </orderedlist>
         <para>
-            Megoldás forrása:  
+            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/blob/master/turing/signal.c">https://github.com/theefues/prog1/blob/master/turing/signal.c</link>  
         </para>
 
         <para>
@@ -152,9 +382,31 @@
         </para>
 
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>
-
+        <para>Fordítás: gcc signal.c -o signal</para>
+        <para>Futtatás: ./signal</para>
+	<para>
+	A signal manuáljában láthatjuk, hogy 2 értékre van szüksége a működéshez: egy signalra és egy handlerre. </para>
+	<para>A signal jelen esetben adott, a 2-es, azaz a terminate signal. Linux alatt ezt a CTRL+C billentyűkombinációval
+	küldhetjük ki a porgramnak. A jelkezelo kezelő függvényét nekünk kell megírnunk. Ezt a main-en kívül, voiddal tudjuk megtenni úgy, hogy a függvényünk kérjen egy int változót, amit elneveztem sig_num-nak. Ez fogja tárolni
+	az elkapott signal számát. A függvényünkün belül printf függvénnyel kiíratjuk, mit mondjon a program, ha le akarjuk lőni: Elkapva %d\n. A sortörés nélkül nekem nem írt ki semmit.</para>
+	<programlisting language="c"><![CDATA[	
+void jelkezelo(int sig_num) {
+        printf("Elkapva %d\n", sig_num);
+}
+	]]></programlisting>
+	<para> Itt a %d a sig_num decimális alakja lesz, vagyis a 2. Ha ezekkel megvagyunk, 
+	nincs más dolgunk, mint végtelen ciklusba rakni a forrásanyagban feltüntetett if függvényt.</para>
+	<programlisting language="c"><![CDATA[
+for(;;) {
+	if(signal(SIGINT, jelkezelo)==SIG_IGN)
+	signal(SIGINT, SIG_IGN);
+}
+	]]></programlisting>
+	<para> A kóddal immár megvagyunk, utolsó teendőként lefordítjuk, majd elindítjuk és megnézzük, jól csináltuk-e, amit csináltunk.
+	Ha minden sikerült, a CTRL+C lenyomásakor az Elkapva 2 üzenetet kell kapnunk.
+	</para>
     </section>                     
 
     <section>
@@ -162,13 +414,13 @@
         <para>
             Hogyan olvasod természetes nyelven az alábbi Ar nyelvű formulákat?
         </para>
-        <programlisting language="tex"><![CDATA[$(\forall x \exists y ((x<y)\wedge(y \text{ prím})))$ 
+        <programlisting language="tex"><![CDATA[1) $(\forall x \exists y ((x<y)\wedge(y \text{ prím})))$ 
 
-$(\forall x \exists y ((x<y)\wedge(y \text{ prím})\wedge(SSy \text{ prím})))$ 
+2) $(\forall x \exists y ((x<y)\wedge(y \text{ prím})\wedge(SSy \text{ prím})))$ 
 
-$(\exists y \forall x (x \text{ prím}) \supset (x<y)) $ 
+3) $(\exists y \forall x (x \text{ prím}) \supset (x<y)) $ 
 
-$(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
+4) $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
 ]]></programlisting>        
         <para>
             Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/MatLog_LaTeX">https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/MatLog_LaTeX</link>
@@ -179,8 +431,12 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
         </para>
 
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>
+        <para>Az 1) azt mondja, hogy sok prímszám létezik. Kiolvasva: Minden x-re van olyan y, hogy x kisebb mint y és akkor y prím.</para>
+        <para>A 2) azt mondja, hogy sok ikerprímszám létezik. Kiolvasva: Minden x-re van olyan y, hogy x kisebb mint y, és y és SSy ikerprím.</para>
+        <para>A 3) és a 4) is azt mondja, hogy véges sok prímszám létezik. 3) Kiolvasva: Van olyan y, amire minden x prím, ebből következik, hogy x kisebb mint y.</para>
+        <para>4) Kiolvasva: Van olyan y, amire minden x nagyobb mint y, ebből következik, hogy x nem prím.</para>
     </section>                                                                                                                                                                            
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
     <section>
@@ -229,33 +485,43 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
 
         <itemizedlist>
             <listitem>
+                <para>Egész integer</para>
                 <programlisting><![CDATA[int a;]]></programlisting>            
             </listitem>
             <listitem>
+                <para>Egész integerre mutató mutató</para>
                 <programlisting><![CDATA[int *b = &a;]]></programlisting>            
             </listitem>
             <listitem>
+                <para>Egész integer referenciája</para>
                 <programlisting><![CDATA[int &r = a;]]></programlisting>            
             </listitem>
             <listitem>
+                <para>5 elemű üres c tömb</para>
                 <programlisting><![CDATA[int c[5];]]></programlisting>            
             </listitem>
             <listitem>
+                <para>5 elemből álló tömb referenciája</para>
                 <programlisting><![CDATA[int (&tr)[5] = c;]]></programlisting>            
             </listitem>
             <listitem>
+                <para>5 elemből álló tömbbre mutató mutató</para>
                 <programlisting><![CDATA[int *d[5];]]></programlisting>            
             </listitem>
             <listitem>
+                <para>Egy függvényre mutató mutató</para>
                 <programlisting><![CDATA[int *h ();]]></programlisting>            
             </listitem>
             <listitem>
+                <para>Egy mutató függvényre mutató mutató függvény  </para>
                 <programlisting><![CDATA[int *(*l) ();]]></programlisting>            
             </listitem>
             <listitem>
+                <para>Egy egészet visszaadó és két egészet kapó mutató függvény</para>
                 <programlisting><![CDATA[int (*v (int c)) (int a, int b)]]></programlisting>            
             </listitem>            
             <listitem>
+                <para>Egy függvényre mutató függvény mutató, ami egy egészet ad vissza és két egészet kap</para>
                 <programlisting><![CDATA[int (*(*z) (int)) (int, int);]]></programlisting>            
             </listitem>            
         </itemizedlist>       
@@ -265,11 +531,12 @@ $(\exists y \forall x (y<x) \supset \neg (x \text{ prím}))$
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása:  
+            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/chomsky/declaration.c">https://github.com/theefues/prog1/blob/master/chomsky/declaration.c</link>
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>
+        <para>A mainbe téve a fentebb leírt deklarációkat, a program sikeresen lefut.</para>
     </section>                     
 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

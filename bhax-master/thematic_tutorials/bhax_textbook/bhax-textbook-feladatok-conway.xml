@@ -15,11 +15,16 @@
             Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/10/10/myrmecologist">https://bhaxor.blog.hu/2018/10/10/myrmecologist</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
+            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/tree/master/conway">https://github.com/theefues/prog1/tree/master/conway</link>               
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>            
+            Tanulságok, tapasztalatok, magyarázat:
+        </para>       
+                <para>A program futtatásához szükségünk van aa libqt4-dev csomagra, amit Linux alatt az apt install libqt4-dev paranccsal tölthetünk le.</para>
+        <para>Ezt követően kiadjuk a qmake -project parancsot abban a mappában, amiben a fájlainkat elhelyeztük, majd csak simán a qmake parancsot, ami legenerál nekünk egy Makefile-t. 
+        Ezt a make paranccsal lefuttatjuk. Ha ezzel megvagyunk, a ./myrmecology paranccsal tudjuk futtatni a programunkat.</para>
+        <para>A main függvény bekéri a szükséges argumentumokat az osztálye előkészítéséhez. 
+        Az antwin.cpp és antwin.h fájlokban található kódok jelenítik meg a hangyákat, míg az antthread.cpp és antthread.h számolja ki, hova tegye a a hangyákat, merre menjenek.</para>
     </section>        
     <section>
         <title>Java életjáték</title>
@@ -31,11 +36,14 @@
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
+            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/edit/master/conway/SiklokilovoGameofLife.java">https://github.com/theefues/prog1/edit/master/conway/SiklokilovoGameofLife.java</link>               
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>            
+        <para>A program futtatásához szükség lesz a JDK egyik verziójára. Így kapni fogunk egy ablakot, amiben fekete pixelek mászkálnak keresztül kasul a képernyőn. Bal alul 2 sejt megy balra és jobbra, így generál 'ágyúgolyókat', amik átlósan mennek az ablakban. Ezt egészen addig folytatják, amíg ezek a golyók el nem érik őket.
+        Ha ez megtörténik, meghalnak. A 2x2-es fekete négyzetek nem váltanak alakot, nem mozognak. Fixen ott maradnak, ahol vannak. Létrehozhatunk sejteket is, ha elkezdünk rajzolni a négyzetrácsos síkon. Ezekre az alakzatokra is bizonyos szabályok fognak érvényesülni és ennek függvényében
+        dől el, hogy meddig maradnak életben és ha "végük", milyen alakzatot hagynak hátra, ha hagynak egyáltalán.</para>
     </section>        
     <section>
         <title>Qt C++ életjáték</title>
@@ -46,11 +54,23 @@
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
+            Megoldás forrása: <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/kozepes/Qt/sejtautomata/">https://sourceforge.net/p/udprog/code/ci/master/tree/source/kozepes/Qt/sejtautomata/</link>               
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>            
+        <para>A program futtatásához szükségünk van aa libqt4-dev csomagra, amit Linux alatt az apt install libqt4-dev paranccsal tölthetünk le.</para>
+        <para>Ezt követően kiadjuk a qmake -project parancsot abban a mappában, amiben a fájlainkat elhelyeztük, majd csak simán a qmake parancsot, ami legenerál nekünk egy Makefile-t. Ezt a make paranccsal lefuttatjuk. Ha ezzel megvagyunk, a ./sejt paranccsal tudjuk futtatni a programunkat.</para>
+        <para>Így kapni fogunk egy ablakot, amiben fekete pixelek mászkálnak keresztül kasul a képernyőn. Bal alul 2 sejt megy balra és jobbra, így generál 'ágyúgolyókat', amik átlósan mennek az ablakban. Ezt egészen addig folytatják, amíg ezek a golyók el nem érik őket.
+        Ha ez megtörténik, meghalnak. A 2x2-es fekete négyzetek nem váltanak alakot, nem mozognak. Fixen ott maradnak, ahol vannak. </para>
+            <figure>
+            <title>Életjáték</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/elet.png"  scale="45" />
+                </imageobject>
+            </mediaobject>
+        </figure>
     </section>        
     <section>
         <title>BrainB Benchmark</title>
@@ -60,11 +80,21 @@
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása: <link xlink:href=""></link>               
+            Megoldás forrása: <link xlink:href="https://github.com/nbatfai/esport-talent-search">https://github.com/nbatfai/esport-talent-search</link>               
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>            
+        <para>A program futtatásához szükség van az OpenCV-re. Mikor elindítjuk a programot, egy vörös képernyő fogad minket, rajta négyzetekkel, amiknek egy nagy kék pötty van a közepén. A feladat, hogy a Samu_Entropy nevű entity keretein belül tartsuk a kurzorunkat.</para>
+                <figure>
+            <title>A BrainB működés közben - Kép: Bátfai Norbert</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/brainb.png" scale="45"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
+    
     </section>        
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>                

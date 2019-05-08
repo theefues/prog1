@@ -26,4 +26,93 @@
             repójába.
         </revremark>
     </revision>
+    <revision>
+        <revnumber>0.0.4</revnumber>
+        <date>2019-02-19</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Aktualizálás, javítások.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.5</revnumber>
+        <date>2019-03-03</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Első fejezet kész.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.6</revnumber>
+        <date>2019-03-11</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Második fejezet kész.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.7</revnumber>
+        <date>2019-03-18</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Harmadik fejezet kész.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.9</revnumber>
+        <date>2019-03-26</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Negyedik fejezet kész.
+        </revremark>
+    </revision>
+     <revision>
+        <revnumber>0.1</revnumber>
+        <date>2019-03.29</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Olvasónaplók készen.
+        </revremark>
+    </revision>
+ <revision>
+        <revnumber>0.1.1</revnumber>
+        <date>2019-04-02</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Ötödik fejezet kész.
+        </revremark>
+    </revision>
+     <revision>
+        <revnumber>0.1.2</revnumber>
+        <date>2019-04-10</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Hatodik fejezet kész.
+        </revremark>
+    </revision>
+         <revision>
+        <revnumber>0.1.3</revnumber>
+        <date>2019-04-24</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Hetedik fejezet kész.
+        </revremark>
+    </revision>
+             <revision>
+        <revnumber>0.1.4</revnumber>
+        <date>2019-04-30</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Kilencedik fejezet kész.
+        </revremark>
+    </revision>
+             <revision>
+        <revnumber>1.0.0</revnumber>
+        <date>2019-05-08</date>
+        <authorinitials>theefues</authorinitials>
+        <revremark>
+            Első teljes kiadás.
+        </revremark>
+    </revision>
+    
 </revhistory>

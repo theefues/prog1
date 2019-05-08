@@ -1,0 +1,92 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gutenberg!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+        <cover>
+            <para>
+                Programozás tankönyvek rövid olvasónaplói.
+            </para>
+        </cover>
+    </info>
+    <section>
+        <title>Programozási alapfogalmak - Pici könyv</title>
+        <para>         
+            <emphasis role="strong">Bevezetés</emphasis>     
+        </para>
+        <para>A világban mindenféle objektum van, amelyeknek vannak tulajdonságaik és bonyolult kapcsolatirendszer van közöttük. Reagálnak
+        egymásra, viselkednek. Viselkedésük eltérő, ez alapján különböztetjük meg őket, így kategorizálhatók, osztályozhatók.</para>
+        <para>A valós világ túl összetett ehhez, így csak megközelítő értékekkel tudunk dolgozni. Ha valami hasonló, van közös, lényeges
+        tulajdonságuk, egy csoportba soroljuk őket. Ezzel létrejön a valós világ modellje. Az ember is modelleket használ, mikor egy problémán
+        gondolkodik, így próbálja megérteni azokat.</para>
+        <para>Egy modellel szemben három követelmény van: a leképzeés követelménye, a leszűkítés követelménye és az alkalmazhatóság követelménye.
+        A számítógép lehetővé tette az emberi gondolkodás bizonyos elemeinek automatizálását. Egyes tulajdonságokat adatokkal, viselkedésmódot
+        pedig programokkal tudjuk kezelni, ezzel egy újabb fajta modellt megadva.</para>
+        <para>
+           <emphasis role="strong">Alapfogalmak</emphasis>
+        </para>
+        <para>A számítógépek progamozására kialakult nyelveknek három szintjét különböztetjük meg: gépi, assembly szintű és magas szintű nyelv.</para>
+        <para>A magas szintű nyelven megírt programot forrásprogramnak vagy forrásszövegnek nevezzük. A formai szabályok összességét szintaktikai szabályoknak hívjuk. A tartalmi, jelentésbeli szabályokat pedig szemantikai szabályoknak.</para>
+        <para>Minden processzor saját gépi nyelvvel rendelkezik és csak az adott gépi nyelven írt programokat tudja végrehajtani. Ezért a magas szintű nyelven megírt szöveget át kell fordítanunk gépi nyelvre. Erre a fordítóprogramos és az interpreteres technikák léteznek.</para>
+        <para>A fordítóprogram egy olyan program, ami a magas szintű nyelvben írt kódot átfordítja gépi kódra, így úgynevezett tárgyprogramot állít elő. Működés közben a következő lépéseket hajta végre: lexikális elemzés, szintaktikai elemzés, szemantikai elemzés és kódgenerálás.
+        A lexikális elemzés során feldaramolja a kódot lexikális egységekre. Ha nem talált semmilyen hibát, kész a programunk, ami immár gépi nyelvű, de nem futtatható. Ehhez a kapcsolatszerkesztőre lesz szükségünk. A futtatható programot a betöltő elhelyezia  tárban és átadja neki a vezérlést. </para>
+        <para>A fordítóprogramok általában tetszőleges nyelvről tetszőleges nyelvre fordítanak. Léteznek olyan nyelvek is, amiben olyan forrásprogramot lehet írni, amelyek tartalmaznak nem nyelvi elemeket is. Ilyen például a C.</para>
+        <para>Minden programnyelvnek megvan a saját szabványa, amit hivatkozási nyelvnek hívunk. Ebben vannak definiálva a szintaktikai és szemantikai szabályok. Napjainkban a programok írásához grafikus IDE-t használunk.</para>
+        <para>
+            <emphasis role="strong">A programnyelvek osztályozása</emphasis>
+        </para>
+        <para>3 főbb csoportba osztályozzuk a nyelveket: imperatív, deklaratív és máselvű (egyéb) nyelvek. Az imperatív nyelvek tulajdonságai közé tartoznak például az algoritmikus nyelvek. A program utasítások sorozatából áll, legfőbb porgramozói eszköz
+        a változó, szorosan kötődnek a neumann architektúrához. Két alcsoportját különböztetjük meg: eljárás- és objektumorientált nyelvek.</para>
+        <para>A deklaratív nyelvek csoportjába tartozik a nem algoritmikus nyelvek. Nem kotődnek szorosan a Neumann architektúrához. A programozó itt csak a problémát adja meg, nem a programkódot. Nincs lehetőség memóriaműveletekre. Két alcsoportja: funckionális és logikai nyelvek.</para>
+        <para>Egyéb nyelvek csoportjába sorolunk minden olyan nyelvet, ami a fentebbi kettőbe nem csoportosítható bele.</para>
+        <para>
+            <emphasis role="strong">Kifejezések</emphasis>
+        </para>
+        <para>A kifejezéses szintaktiaki aeszközök. Két komponensük van: érték és típus.</para>
+        <para>Egy kifejezés formálisan a következő összetevőkből áll: operandusok, operátorok és kerek zárójelek. A legegyszerűbb kifejezés egyetlen operandusból áll. Operandusszámtól függően lehet egyoperandusú(unáris), kétoperandusú(bináris) vagy háromoperandusú(ternáris) operátork</para>
+        
+    </section>        
+    <section>
+        <title>Programozás bevezetés - KERNIGHANRITCHIE könyv</title>
+        <para>                
+            <citation>KERNIGHANRITCHIE</citation>
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/zmfT9miB-jY">https://youtu.be/zmfT9miB-jY</link>
+        </para>  
+        <para>
+            <emphasis role="strong">Alapismeretek</emphasis>
+        </para>
+        <para>C nyelvben a kiírást a printf függvénnyel érhetjük el. A program futtatása mindig az adott operációs rendszertő függ. Unix rendszerekben .c végződésű fájlt kell létrehoznunk
+        és azt lefordítanunk. Ha sikerült, visszakapjuk a megadott stringet. A C beli függvények a FORTRAN függvényeihez hasonlítanak. A függvény neve bármi lehet, de a programunk végrehajtása
+        mindig a mainnel kezdődik. A függvények közötti adatátadást argumentumok segítségével érhetjük el. A main általában argumentum nélküli, ezt így jelöljük: ()</para>
+        <para>A stringeket mindig rakjuk két " közé, hogy ne legyen semmi fennakadás. Új sort csak a \n karakterrel kezdhetünk.</para>
+        <para>Megjegyzést a // vagy /* karakterekkel adhatunk meg. Egy sor komment //, több sor esetén /* */ közé kell írni.
+        Az int az egész, a float a lebegő pontos változókat jelölik. Mindkét fajta változó pontossága az adott számítógéptől függ.
+        Léteznek még más adattípusok is: char, short, long és double. Ezek méretei is a számítógéptől függenek. Ezekből épíülnek fel a tömbök, sturktúrák
+        és az unionok. Mutatók mutathatnak rájuk, függvények térhetnek vissza velük.</para>
+        <para>A while utasítás egy adott alkalommal fut végig. A printf %d értéke decimális számot, az %o oktálist, az %x hexadecimálist, a %c karaktert, az %s karakterláncot ad vissza.</para>
+        <para>A for utasítás azt tudja mint a while, csak általánosítva. 3 értéke van, az i lépésváltozó, a kritérium, és a lépésváltozó léptetése. Hozhatunk létre állandókat, ezt a #define paranccsal érhetjük el.
+        Ezek konstansok, nem változnak a program során, mindig fix az értékük, így nem jelennek meg a deklarációban sem.</para>
+        <para>Vannak függvények, amivel inputot tudunk olvasni. Ez például a getchar() függvény. Ez minden híváskor beolvassa a következő bemeneti karaktert és a visszatérési értéke is ez a karakter lesz. Ennek az ellentéte a putchar(). Ez egy adott karaktert ír ki az outputra. Ezzel a módszerrel lehet megszámolni például a karaktereket.</para>
+    </section>        
+    <section>
+        <title>Programozás - BME C++ könyv</title>
+        <para>                
+            <citation>BMECPP</citation>
+        </para>
+        <para>
+            <emphasis role="strong">Kivételkezelés</emphasis>
+        </para>
+        <para>A program futtatása során a hibás esetek kezelése a C nyelvben jellemzően visszaadott hibakód alapján történik. A C++ nyelvben a kivételek alkalmazásával ennél sokkal strukturáltabb, átláthatóbb és könnyebben karbantartható a hibakezelés.</para>
+        <para>Hagyományos hibakezelés: main() -> Wrap()->Save()->ValidateAndPrepare(), DoSave()</para>
+        <para>Ha a hívási lánc mélyén hibát fedezünk fel, és a hibát nem tudjuk helyben elképzelni, akkor a hívó függvény számára visszatérési értékben megadott, a hibára jellemző hibakóddal jelezzük.</para>
+        <para>A kivételkezelés olyan mechanizmus, amely biztosítja, hogy ha hibát detektálunk valahol, akkor a futás azonnal a hibakezelő ágon folytatódjon. A kivételkezelést azonban nem véletlen hívják kivétel és nem hibakezelésenk.</para>
+        <para>Ha a védett blokkban nem találunk hibát, akkor a {} közötti védett blokk valamennyi utasítáa lefut. Ezt követően a vezérlés a catch ág után folytatódik. Mivel a catch a hibákat veszi észre, így normál esetben a benne lévő kódok nem futnak le.</para>
+        <para>Ha a kódban hibás feltétlet detektálunk, akkor a throw kulcsszóval kiévtelt dobunk, amit a catch elkap. A main függvényben található kódot egy try-catch blokkban helyezzük el. A throw által dobott adat a kivételobjektum.</para>
+        <para>A try-catch blokkok egymásba is ágyazhatóak. Egy kivétel dobásakor annak elkapásáig a függvények híbási láncában felfelé haladva az egyes függvények lokális változói felszabadulnak. Ez a folyamat a hívási verem visszacserélése.</para>
+        <para>A kivételkezelés mechanizmusa az, hogy kivétel esetén azonnal a kivételkezelőre ugorjunk. Például ha írunk egy programot, amiben arra kérjük a felhasználót, hogy írjon be egy nullánál különböző számot, és létrehozunk egy kivételt, hogy abban az esetben, ha a bekapott input 0, akkor tudassa a felhasználóval, hogy a bemeneti érték nem lehet nulla.</para>
+    </section>        
+</chapter>                
+

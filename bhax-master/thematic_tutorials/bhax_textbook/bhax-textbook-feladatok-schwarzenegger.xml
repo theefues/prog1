@@ -11,16 +11,23 @@
             Python
         </para>
         <para>
-            Megoldás videó:
+            Megoldás videó: <link xlink:href="https://youtu.be/j7f9SkJR3oc">https://youtu.be/j7f9SkJR3oc</link>      
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása: <link xlink:href="https://github.com/tensorflow/tensorflow/releases/tag/v0.9.0">https://github.com/tensorflow/tensorflow/releases/tag/v0.9.0</link> (/tensorflow-0.9.0/tensorflow/examples/tutorials/mnist/), <link xlink:href="https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol">https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol</link>  
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+         <caution>
+            <title>Passz</title>
+            <para>
+                Ezt a feladatot passzoltam.
+            </para>
+        </caution>
     </section>        
 
+<!--
     <section>
         <title>Szoftmax R MNIST</title>
         <para>
@@ -36,7 +43,8 @@
             Tanulságok, tapasztalatok, magyarázat...
         </para>
     </section>        
-
+-->
+    
     <section>
         <title>Mély MNIST</title>
         <para>
@@ -51,8 +59,14 @@
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+                 <caution>
+            <title>Passz</title>
+            <para>
+                Ezt a feladatot passzoltam.
+            </para>
+        </caution>
     </section>        
-
+<!--
     <section>
         <title>Deep dream</title>
         <para>
@@ -68,13 +82,13 @@
             Tanulságok, tapasztalatok, magyarázat...
         </para>
     </section>        
-                  
+-->                  
     <section>
-        <title>Robotpszichológia</title>
+        <title>Minecraft-MALMÖ</title>
         <para>
         </para>
         <para>
-            Megoldás videó:
+            Megoldás videó: <link xlink:href="https://youtu.be/bAPSu3Rndi8">https://youtu.be/bAPSu3Rndi8</link>      
         </para>
         <para>
             Megoldás forrása:                
@@ -82,6 +96,12 @@
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+                 <caution>
+            <title>Passz</title>
+            <para>
+                Ezt a feladatot passzoltam.
+            </para>
+        </caution>
     </section>        
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 </chapter>                

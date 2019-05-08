@@ -6,19 +6,85 @@
         </keywordset>
     </info>
     <section>
-        <title><type>int ***</type> háromszögmátrix</title>
-        <para>
-           
-        </para>
+        <title><type>double **</type> háromszögmátrix</title>
         <para>
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása:    <link xlink:href=" https://github.com/theefues/prog1/blob/master/caesar/double.c"> https://github.com/theefues/prog1/blob/master/caesar/double.c</link>           
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>            
+            Tanulságok, tapasztalatok, magyarázat:
+        </para>
+        <para>Fordítás: gcc double.c -o double</para>
+        <para>Futtatás: ./double</para>
+        <para>A háromszögmátrixunk 5 sorból fog állni.</para>
+        <programlisting language='c'><![CDATA[
+#include <stdio.h> #include <stdlib.h>
+int main () { int nr = 5; double **tm;
+printf("%p\n", &tm);
+if ((tm = (double **) malloc (nr * sizeof (double *))) == NULL) {
+    return -1;
+}
+        ]]></programlisting>
+    <para>Includeoljuk a szükséges könyvtárakat, majd a mainen belül felveszünk két változót, az int nr-t, ami a sorok számát adja meg, illetve a dobule **tm változónkat. Ez után kiíratjuk a tm változó tartalmát. Egy if függvénnyel megvizsgáljuk, van-e hely a memóriában a további mu˝veletekhez. Ehhez a malloc függvényt használjuk, ami egy pointert fog nekünk visszaadni. Értékét a nr értékével és a double * változó értékével kell szorozni. Ha nincs elég memória, a progam kilép -1-es hibakóddal. Ha van, megy tovább. </para>
+    <programlisting language='c'><![CDATA[
+ printf("%p\n", tm);
+    
+    for (int i = 0; i < nr; ++i)
+    {
+        if ((tm[i] = (double *) malloc ((i + 1) * sizeof (double))) == NULL)
+        {
+            return -1;
+        }
+
+    }
+
+    printf("%p\n", tm[0]);    
+    
+    for (int i = 0; i < nr; ++i)
+        for (int j = 0; j < i + 1; ++j)
+            tm[i][j] = i * (i + 1) / 2 + j;
+
+    for (int i = 0; i < nr; ++i)
+    {
+        for (int j = 0; j < i + 1; ++j)
+            printf ("%f, ", tm[i][j]);
+        printf ("\n");
+    }
+    ]]></programlisting>
+    <para>Kiírjuk a tm változó értékét. Az els˝o for ciklusunkban addig megyünk, amíg az nr, azaz a sorok száma tart, jelen esetben 5. Mindig eggyel arrébb mutatunk a memóriában, ahol eggyel több double * számára van lefoglalva a hely így az első sorban 1 érték szerepel, a másodikban már 2, a harmadikban három és így tovább, amíg a for ciklus igaz. A tm[] tömbben ugrálunk mindig eggyel nagyobb érték felé. Ha útközben betelik a memória, a program kilép. </para>
+    <para>A következ˝o for ciklus el˝ott kiírjuk a tm[] tömb 0-ás, azaz első elemét. Ez után elkészítjük a mátrixunkat, ugyanúgy a nr változós for ciklus segítségével, majd ki is íratjuk őket.</para>
+    <programlisting language='c'><![CDATA[
+tm[3][0] = 42.0;
+    (*(tm + 3))[1] = 43.0;	// mi van, ha itt hiányzik a külső ()
+    *(tm[3] + 2) = 44.0;
+    *(*(tm + 3) + 3) = 45.0;
+
+    for (int i = 0; i < nr; ++i)
+    {
+        for (int j = 0; j < i + 1; ++j)
+            printf ("%f, ", tm[i][j]);
+        printf ("\n");
+    }
+
+    for (int i = 0; i < nr; ++i)
+        free (tm[i]);
+
+    free (tm);
+
+    return 0;
+}
+    ]]></programlisting>
+    <para>Ha mindennel megvagyunk, felszabadítjuk a tm által lefoglalt memóriaterületet, és nullával kilépünk a programmal.</para>
+         <figure>
+            <title>Double** háromszögmátrix a memóriában - Kép: Bátfai Norbert</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/doublecscs.png" scale="30"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
     </section>        
     <section>
         <title>C EXOR titkosító</title>
@@ -29,11 +95,60 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása:   <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exorc/exor.c">https://github.com/theefues/prog1/blob/master/caesar/exorc/exor.c</link>       
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>            
+            Tanulságok, tapasztalatok, magyarázat:
+        </para>
+        <para>Fordítás: gcc exor.c -o exor</para>
+        <para>Futtatás: ./exor kulcs &lt; tiszta.szoveg &gt; titkos.szoveg </para>
+        <para>A C exor titkosítónk működése a kulcs alapján történő karakterkódolás. A kulcsban szereplő karakterek alapján a titkosító program összekeveri a karaktereket, így egy érthetetlen kódhalmazt kapunk a tiszta szöveg helyett.</para>
+        <para>A kódunkban includeolnunk kell a szükséges könyvtárakat és definiálnunk kell a továbbiakban használatos kifejezéseket. Ezek a MAX_KULCS és a BUFFER_MERET. A max kulcs a megadható kulcs hosszát, míg a BUFFER_MERET értelem szerűen a buffer méretét adja meg.</para>
+    <programlisting language='c'><![CDATA[
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+#define MAX_KULCS 100
+#define BUFFER_MERET 256
+    ]]></programlisting>
+    <para>Mivel a programunk argumentumokkal dolgozik, a mainben ezt jeleznünk kell neki. Deklarálnunk kell az argc integer változót, valamint a **argv char típusú pointert.</para>
+    <para>A mainen belül fel kell vennönk a kulcs és buffer változókat. Ezek értékét a már fentebb definiált MAX_KULCS és BUFFER_MERET határozza meg.</para>
+    <programlisting language='C'><![CDATA[
+int
+main (int argc, char **argv)
+{
+
+  char kulcs[MAX_KULCS];
+  char buffer[BUFFER_MERET];
+
+  int kulcs_index = 0;
+  int olvasott_bajtok = 0;
+
+  int kulcs_meret = strlen (argv[1]);
+  strncpy (kulcs, argv[1], MAX_KULCS);
+    ]]></programlisting>
+    <para>Az int kulcs_meret változóban az inputban megadott kulcs hosszát olvassuk be, majd összehasonlítjuk a MAX_KULCS-csal.</para>
+    <programlisting language='c'><![CDATA[
+while ((olvasott_bajtok = read (0, (void *) buffer, BUFFER_MERET)))
+    {
+
+      for (int i = 0; i < olvasott_bajtok; ++i)
+	{
+
+	  buffer[i] = buffer[i] ^ kulcs[kulcs_index];
+	  kulcs_index = (kulcs_index + 1) % kulcs_meret;
+
+	}
+
+      write (1, buffer, olvasott_bajtok);
+
+    }
+}
+    ]]></programlisting>
+    <para>A while ciklusunkban beolvassuk az inputfájlt bájtonként a bufferbe, a BUFFER_MERET értékén belül.</para>
+    <para>A for cikluson belül végigmegyünk a buffer tartalmán és mindegyiket exorosan titkosítjuk a megadott kulcs alapján.</para>
+    <para>Ha megvan, kicseréljük az eredeti buffert az új, titkosított bufferre és kiadjuk az outputnak.</para>
     </section>        
     <section>
         <title>Java EXOR titkosító</title>
@@ -44,11 +159,65 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása:    <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exor.java">https://github.com/theefues/prog1/blob/master/caesar/exor.java</link>                 
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>            
+            Tanulságok, tapasztalatok, magyarázat:
+        </para>
+        <para>Tutor: Iloshvai Áron</para>
+        <para>Fordítás: javac exor.java</para>
+        <para>Futatás: java exor.java kulcs &lt; tiszta.szoveg &gt; titkos.szoveg </para>
+        <para>Az exor titkosító hasonlóképp működik javaban, mint c-ben. Annyi a különbség, hogy itt az exor függvényt class-ba kell rakni, míg C-ben nem volt muszáj.</para>
+        <programlisting language='java'><![CDATA[
+    
+public class ExorTitkosito {
+    
+    public ExorTitkosito(String kulcsSzoveg,
+            java.io.InputStream bejovoCsatorna,
+            java.io.OutputStream kimenoCsatorna)
+            throws java.io.IOException {
+        
+        byte [] kulcs = kulcsSzoveg.getBytes();
+        byte [] buffer = new byte[256];
+        int kulcsIndex = 0;
+        int olvasottBajtok = 0;
+
+        while((olvasottBajtok =
+                bejovoCsatorna.read(buffer)) != -1) {
+            
+            for(int i=0; i<olvasottBajtok; ++i) {
+                
+                buffer[i] = (byte)(buffer[i] ^ kulcs[kulcsIndex]);
+                kulcsIndex = (kulcsIndex+1) % kulcs.length;
+                
+            }
+            
+            kimenoCsatorna.write(buffer, 0, olvasottBajtok);
+            
+        }
+        
+    }
+        ]]></programlisting>
+        <para>ExorTitkosito néven létrehozunk egy publikus class-t, azon belül pedig felvesszük az ExorTitkosito függvényt, ami a kulcsSzoveg stringet, az input és output csatornákat fogja tartalmazni.</para>
+        <para>Innentől minden ugyanaz, mint a C-ben, tehát beolvassuk a kulcsot valamint a buffert, exorozzuk majd elmentjük a titkosított szöveget.</para>
+        <programlisting language='java'><![CDATA[
+    public static void main(String[] args) {
+        
+        try {
+            
+            new ExorTitkosito(args[0], System.in, System.out);
+            
+        } catch(java.io.IOException e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+    }
+    
+}
+        ]]></programlisting>
+        <para>Innentől más dolgunk nincs, mint a mainben meghívni a fenti classt és megcsinálni az inputtal a titkosítást. A try-catch blokkal pedig elkapjuk az esetleges hibákat.</para>
     </section>        
     <section>
         <title>C EXOR törő</title>
@@ -59,11 +228,127 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exorc/toro.c">https://github.com/theefues/prog1/blob/master/caesar/exorc/toro.c</link>        
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>            
+            Tanulságok, tapasztalatok, magyarázat:
+        </para>
+        <para>Fordítás: gcc toro.c -o toro</para>
+        <para>Futtatás: ./toro &lt; titkos.szoveg &gt; tistza.szoveg </para>
+        <para>Ha elfelejtettük a titkosításnál megadott kulcsot, akkor ez a program végigmegy az összes lehetséges kulcson, hogy megtalálja a megfelelőt. Ennek megkönnyítésére bevezetünk pár funkciót.</para>
+    <programlisting language='c'><![CDATA[
+#define MAX_TITKOS 4096
+#define OLVASAS_BUFFER 256
+#define KULCS_MERET 5
+#define _GNU_SOURCE
+
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+double
+atlagos_szohossz (const char *titkos, int titkos_meret)
+{
+  int sz = 0;
+  for (int i = 0; i < titkos_meret; ++i)
+    if (titkos[i] == ' ')
+      ++sz;
+
+  return (double) titkos_meret / sz;
+}
+
+int
+tiszta_lehet (const char *titkos, int titkos_meret)
+{
+
+  double szohossz = atlagos_szohossz (titkos, titkos_meret);
+
+  return szohossz > 6.0 && szohossz < 9.0
+    && strcasestr (titkos, "hogy") && strcasestr (titkos, "nem")
+    && strcasestr (titkos, "az") && strcasestr (titkos, "ha");
+
+}
+
+void
+exor (const char kulcs[], int kulcs_meret, char titkos[], int titkos_meret)
+{
+
+  int kulcs_index = 0;
+
+  for (int i = 0; i < titkos_meret; ++i)
+    {
+
+      titkos[i] = titkos[i] ^ kulcs[kulcs_index];
+      kulcs_index = (kulcs_index + 1) % kulcs_meret;
+
+    }
+
+}    
+
+int
+exor_tores (const char kulcs[], int kulcs_meret, char titkos[],
+	    int titkos_meret)
+{
+
+  exor (kulcs, kulcs_meret, titkos, titkos_meret);
+
+  return tiszta_lehet (titkos, titkos_meret);
+
+}
+    ]]></programlisting>
+    <para>Először defineoljuk a szükséges kifejezéseket, mint a kulcsméret, olvasási buffer és a beolvasható titkos szöveg maximális mérete. Ez után includeoljuk a szükséges könyvtárakat, majd elkezdjük megírni a funkciókat.</para>
+    <para>Az atlagos_szohossz megnézi, mekkora a szövegben előforduló szavak átlag hosszúsága, ezt visszaadja egy double változóként.</para>
+    <para>A tiszta_lehet funkció lecsökkenti a lehetséges kulcsok számát, ezzel is felgyorsítva a folyamatot. Ez jelenleg csak a magyar nyelvre van optimalizálva</para>
+    <para>Az exor próbálja feltörni a szöveget, az exor_tores pedig megnézi, hogy sikerült-e neki.</para>
+    <programlisting language='c'><![CDATA[
+int
+main (void)
+{
+
+  char kulcs[KULCS_MERET];
+  char titkos[MAX_TITKOS];
+  char *p = titkos;
+  int olvasott_bajtok;
+
+  // titkos fajt berantasa
+  while ((olvasott_bajtok =
+	  read (0, (void *) p,
+		(p - titkos + OLVASAS_BUFFER <
+		 MAX_TITKOS) ? OLVASAS_BUFFER : titkos + MAX_TITKOS - p)))
+    p += olvasott_bajtok;
+
+  // maradek hely nullazasa a titkos bufferben  
+  for (int i = 0; i < MAX_TITKOS - (p - titkos); ++i)
+    titkos[p - titkos + i] = '\0';
+
+  // osszes kulcs eloallitasa
+  for (int ii = 'A'; ii <= 'Z'; ++ii)
+    for (int ji = 'A'; ji <= 'Z'; ++ji)
+      for (int ki = 'A'; ki <= 'Z'; ++ki)
+	for (int li = 'A'; li <= 'Z'; ++li)
+	  for (int mi = 'A'; mi <= 'Z'; ++mi)
+
+		  {
+		    kulcs[0] = ii;
+		    kulcs[1] = ji;
+		    kulcs[2] = ki;
+		    kulcs[3] = li;
+		    kulcs[4] = mi;
+
+		    if (exor_tores (kulcs, KULCS_MERET, titkos, p - titkos))
+		      printf
+			("Kulcs: [%c%c%c%c%c]\nTiszta szoveg: [%s]\n",
+			 ii, ji, ki, li, mi, titkos);
+
+		    // ujra EXOR-ozunk, igy nem kell egy masodik buffer  
+		    exor (kulcs, KULCS_MERET, titkos, p - titkos);
+		  }
+
+  return 0;
+}
+    ]]></programlisting>
+    <para>A mainben behívjuk a fentebb már megírt függvényeket a megfelelő helyre. Beolvassuk a titkos fájlunk tartalmát a bufferbe, majd végigmegyünk az összes lehetséges kulcson, közben folyamatosan ellenőrizzük a
+    kimenetet, hogy tiszta-e már a szövegünk, vagyis megtalálhatóak benne a tista_lehet funkción belül felvett szavak.</para>
     </section>        
     <section>
         <title>Neurális OR, AND és EXOR kapu</title>
@@ -77,8 +362,20 @@
             Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/NN_R</link>               
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            Tanulságok, tapasztalatok, magyarázat:
         </para>            
+        <para>A neurális hálózat logikai kapuja egy vagy több bemeneti értéket kap, majd azokra elvégzi az adott műveletet, ami után ad egy kimeneti, szintén logikai értéket. 
+        Ezzel a kimeneti adatot egyből, konvertálás nélkül továbbíthatjuk egy másik logikai kapunak, így egy bonyolult és összetett logikai rendszert építhetünk fel a segítségével. Összesen hétféle kapu létezik: AND OR NOT NAND NOR EXOR EXNOR,
+        ezek csak kétféle kimenetet adhatnak. Ebből nekünk csak az OR, tehát a vagy, az AND, tehát az és, valamint az EXOR, azaz a kizáró vagyra van szükségünk a feladatban. 
+</para>
+         <figure>
+            <title>AND, OR és EXOR igazságtáblái</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/andorexor.png" scale="70"/>
+                </imageobject>
+            </mediaobject>
+        </figure>
     </section>        
     <section>
         <title>Hiba-visszaterjesztéses perceptron</title>
@@ -89,11 +386,13 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:                
+            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/perceptron.cpp">https://github.com/theefues/prog1/blob/master/caesar/perceptron.cpp</link>              
         </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>            
+            Tanulságok, tapasztalatok, magyarázat:
+        </para>
+        <para>A perceptron a gépi tanulásban a felügyelt tanulással kapcsolatos algoritmus. Megfelelő tanítás után képes arra, hogy két, lineárisan szétválasztható bemeneti mintahalmazt kettészedjen.</para>
+        <para>Felépítéséből láthatóan egy lineáris kombinációt valósít meg, amelynek kimenetén egy küszöbfüggvény szerepel, segítve ezzel a hibaképzést. Forrás: Wikipedia</para>
     </section>        
         
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
