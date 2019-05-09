@@ -11,7 +11,7 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:    <link xlink:href=" https://github.com/theefues/prog1/blob/master/caesar/double.c"> https://github.com/theefues/prog1/blob/master/caesar/double.c</link>           
+            Megoldás forrása: Kód: Bátfai Norbert  <link xlink:href=" https://github.com/theefues/prog1/blob/master/caesar/double.c"> https://github.com/theefues/prog1/blob/master/caesar/double.c</link>           
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
@@ -95,7 +95,7 @@ tm[3][0] = 42.0;
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:   <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exorc/exor.c">https://github.com/theefues/prog1/blob/master/caesar/exorc/exor.c</link>       
+            Megoldás forrása: Kód: Bátfai Norbert  <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exorc/exor.c">https://github.com/theefues/prog1/blob/master/caesar/exorc/exor.c</link>       
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
@@ -159,7 +159,7 @@ while ((olvasott_bajtok = read (0, (void *) buffer, BUFFER_MERET)))
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:    <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exor.java">https://github.com/theefues/prog1/blob/master/caesar/exor.java</link>                 
+            Megoldás forrása:  Kód: Bátfai Norbert  <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exor.java">https://github.com/theefues/prog1/blob/master/caesar/exor.java</link>                 
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
@@ -228,7 +228,7 @@ public class ExorTitkosito {
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exorc/toro.c">https://github.com/theefues/prog1/blob/master/caesar/exorc/toro.c</link>        
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/exorc/toro.c">https://github.com/theefues/prog1/blob/master/caesar/exorc/toro.c</link>        
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
@@ -386,7 +386,7 @@ main (void)
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/perceptron.cpp">https://github.com/theefues/prog1/blob/master/caesar/perceptron.cpp</link>              
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/caesar/perceptron.cpp">https://github.com/theefues/prog1/blob/master/caesar/perceptron.cpp</link>              
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:

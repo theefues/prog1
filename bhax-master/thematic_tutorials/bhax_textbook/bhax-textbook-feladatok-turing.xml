@@ -192,7 +192,7 @@ false]]></screen>
             Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2018/08/28/labdapattogas">https://bhaxor.blog.hu/2018/08/28/labdapattogas</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/tree/master/turing/labda">https://github.com/theefues/prog1/tree/master/turing/labda</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/tree/master/turing/labda">https://github.com/theefues/prog1/tree/master/turing/labda</link>
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
@@ -281,7 +281,7 @@ if ( x>=mx-1 ) {
             Megoldás videó: <link xlink:href=""></link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/blob/master/turing/pagerank.c">https://github.com/theefues/prog1/blob/master/turing/pagerank.c</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/turing/pagerank.c">https://github.com/theefues/prog1/blob/master/turing/pagerank.c</link>
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
@@ -376,8 +376,9 @@ int main (void){
             Megoldás videó: <link xlink:href="https://youtu.be/xbYhp9G6VqQ">https://youtu.be/xbYhp9G6VqQ</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R">https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R">https://gitlab.com/nbatfai/bhax/blob/master/attention_raising/Primek_R</link>
         </para>
+        <para>Tutor: Iloshvai Áron</para>
         <programlisting language='r'><![CDATA[
 library(matlab)
 
@@ -396,7 +397,7 @@ x=seq(13, 1000000, by=10000)
 y=sapply(x, FUN = stp)
 plot(x,y,type="b")
         ]]></programlisting>
-    <para>Ez az R szimuláció bebizonyítja, hogy véges sok számú ikerprím létezik. Minél nagyobbak a számok, annál kisebb az ikerprímek előfordulásának esélye.</para>
+    <para>Ez az R szimuláció bebizonyítja, hogy véges sok számú ikerprím létezik. Minél nagyobbak a számok, annál kisebb az ikerprímek előfordulásának esélye. A program megvizsgál minden prímet a megadott intervallumban, majd kiírja őket.</para>
     </section>
     
     <section xml:id="bhax-textbook-feladatok-turing.MontyHall">
@@ -408,7 +409,7 @@ plot(x,y,type="b")
             Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2019/01/03/erdos_pal_mit_keresett_a_nagykonyvben_a_monty_hall-paradoxon_kapcsan">https://bhaxor.blog.hu/2019/01/03/erdos_pal_mit_keresett_a_nagykonyvben_a_monty_hall-paradoxon_kapcsan</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/MontyHall_R</link>
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:

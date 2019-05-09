@@ -17,7 +17,7 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:     <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/polargen.java">https://github.com/theefues/prog1/blob/master/welch/polargen.java</link>            
+            Megoldás forrása:   Kód: Bátfai Norbert  <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/polargen.java">https://github.com/theefues/prog1/blob/master/welch/polargen.java</link>            
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat... térj ki arra is, hogy a JDK forrásaiban a Sun programozói
@@ -124,7 +124,7 @@ if (haveNextNextGaussian) {
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzw.c">https://github.com/theefues/prog1/blob/master/welch/lzw.c</link>        
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzw.c">https://github.com/theefues/prog1/blob/master/welch/lzw.c</link>        
         </para>
         <para>Fordítás: gcc lzw.c -o lzw</para>
         <para>Futtatás: ./lzw infile -o outfile</para>
@@ -365,7 +365,7 @@ szabadit (BINFA_PTR elem)
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp</link>        
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp</link>        
         </para>
         <para>Az alapból inorder bejárású fát át kell írnunk pre- és postorderre.</para>
         <para>A feladat nagyon egyszerű; meg kell keresnünk az alábbi kódrészletet a forrásfájlban és átírni így:</para>
@@ -494,7 +494,7 @@ var = 1.0328
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:   <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp</link>      
+            Megoldás forrása: Kód: Bátfai Norbert  <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwbinfa.cpp</link>      
         </para>
         <para>A gyökér csomópontot bele kell ültetnünk az LZWBinFa osztályba:</para>
         <programlisting><![CDATA[
@@ -545,6 +545,7 @@ void operator<< (char b)
         ]]></programlisting>
         <para>Megnézzük, hogy egyest vagy nullát kell betenni. Ha nullát, ellenőrizzük, hogy van-e nullás gyermeke a csomópontnak. Ha van, arra épülünk tovább, ha nincs, elkészítjük. Új csomópontot hozunk létre, és bejegyezzük, hogy immár van 0-ás gyermek. Hozzáadjuk, majd visszatérünk a gyökérre.</para>
         <para>Ha 1-es, akkor ugyanezt megcsináljuk vele, csak 0 helyett 1 lesz.</para>
+        <para>Értelmezéshez használt segítség: a kód kommentjei.</para>
     </section>        
                 
     <section>
@@ -554,7 +555,7 @@ void operator<< (char b)
             </para>
             <para> Megoldás videó: </para>
             <para>
-            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwmutato.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwmutato.cpp</link>  
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwmutato.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwmutato.cpp</link>  
             </para>
             <para>A z3a7.cpp programunkat fogjuk módosítani a következőképp: az LZWBinFa osztály public részén belül az LZWBinFa ():fa (&amp;gyoker) konstruktor tagot átírjuk arra, hogy:</para>
             <programlisting language="C++">
@@ -595,7 +596,7 @@ LZWBinFa ()
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwmozgato.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwmozgato.cpp</link>
+            Megoldás forrása: Kód: Bátfai Norbert, Mozgató szemantika: Győri Márk Patrik <link xlink:href="https://github.com/theefues/prog1/blob/master/welch/lzwmozgato.cpp">https://github.com/theefues/prog1/blob/master/welch/lzwmozgato.cpp</link>
         </para>
         <para>Tutor: Győri Márk Patrik</para>
         <programlisting language="c"><![CDATA[    LZWBinFa & operator= (const LZWBinFa & cp) {
@@ -604,8 +605,9 @@ LZWBinFa ()
         return *this;
     };]]></programlisting>
             <para>
-                Létrehozunk egy operátort, ami ha nem a gyökeret tartalmazza, akkor lemásolja saját magát.
-                A másolás egy rekurzióval végződik, ami a fa minden ágát újra létrehozza egy másik gyökérre.
+                Létrehozunk egy olyan opertáort, ami ha nem a gyökeret tartalmazza, akkor saját magát másolja le.
+                A másolás rekurzív, ami a fa minden ágát létrehozza újra egy másik gyökérre. Az std::move-ra nincs szükségünk, ugyanis az nem mozgat semmit.
+                
             </para>
             <programlisting language="c"><![CDATA[    void rekurzioIndutasa(Csomopont csm){
         if(csm.nullasGyermek()){
@@ -649,13 +651,13 @@ LZWBinFa ()
         }
     }]]></programlisting>
         <para>
-            A rekurzioIndutasa függvény indítja el a rekurziót, ha van nullás gyermeke akkor azon fut tovább, ha van egyes gyermeke akkor arra is meghívásra kerül.
-            A fő eljárást maga a rekurzioAzAgakon függvény végzi, ez fut át az összes ágon, és létrehozza az új csomópontokat.
+            A rekurzioInditása nevű függvény indítja el a rekurziót, ami végigfut a fán, és ha van nullás gyermeke, akkor azon fut tovább, ha egyes gyermeke van, akkor arra is meghívódik.
+            A rekurzioAzAgaok függvény pedig végigfut minden ágon és ha kell, létrehozza a szükséges új csomópontokat.
         </para>
         <programlisting language="c"><![CDATA[LZWBinFa binFa2;
     binFa2 = binFa;]]></programlisting>
         <para>
-            A másolás már csak az egyenlőség jel operátorral meghívva történik, így az alap binFa átmásolódik a binFa2-be.
+            A másolás az = operátorral történik, így a binFa fája átmásolódik a binFa2-be.
         </para>
     </section>                     
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

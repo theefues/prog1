@@ -14,7 +14,7 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása:      <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/halmaz.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/halmaz.cpp</link>          
+            Megoldás forrása:  Kód: Bátfai Norbert    <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/halmaz.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/halmaz.cpp</link>          
         </para>
         <para>A Mandelbrot-halmaz azon c komplex számok síkja, amelyekre igaz ez a sorozat, hogy x<subscript>1</subscript> = c és x<subscript>n+1</subscript> = (x<subscript>n</subscript>)<superscript>2</superscript> + c</para>
         <para>A komplex számsíkon ábrázolva úgynevezett fraktálalakzatot kapunk. Ezek az alakzatok elsőre összevisszának tűnhetnek, ám aprólékosabban megnézve észrevesszük, hogy komoly matematikai számítások eredményei, tehát minden
@@ -40,7 +40,7 @@
             Megoldás videó:
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/complex.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/complex.cpp</link>  
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/complex.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/complex.cpp</link>  
         </para>
         <para>Fordítás: g++ complex.cpp -o complex -lpng</para>
         <para>Futtatás: ./complex fájlnév szélesség magasság n a b c d</para>
@@ -143,7 +143,7 @@ std::cout << "Szamitas\n";
             Megoldás videó: <link xlink:href="https://youtu.be/IJMbgRzY76E">https://youtu.be/IJMbgRzY76E</link>
         </para>
         <para>
-            Megoldás forrása: <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/biomorf.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/biomorf.cpp</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/biomorf.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/biomorf.cpp</link>
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat:
@@ -220,7 +220,7 @@ for (int i=0; i < iteraciosHatar; ++i)
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/cuda.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/cuda.cpp</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/cuda.cpp">https://github.com/theefues/prog1/blob/master/mandelbrot/cuda.cpp</link>
         </para>
         <para>Fordítás: g++ cuda.cpp -o cuda -lpng</para>
         <para>Futtatás: ./cuda fájlnév</para>
@@ -306,7 +306,7 @@ mandel (int kepadat[MERET][MERET]) {
             Megoldás videó: 
         </para>
         <para>
-            Megoldás forrása:  <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/Qt/Frak/">https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/Qt/Frak/</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/Qt/Frak/">https://sourceforge.net/p/udprog/code/ci/master/tree/source/labor/Qt/Frak/</link>
         </para>
         <para>A program futtatásához szükségünk van a libqt4-dev csomagra, amit Linux alatt az apt install libqt4-dev paranccsal tölthetünk le.</para>
         <para>Ezt követően kiadjuk a qmake parancsot abban a mappában, amiben a fájlainkat elhelyeztük, ami legenerál nekünk egy Makefile-t. Ezt a make paranccsal lefuttatjuk. Ha ezzel megvagyunk, a ./Frak paranccsal tudjuk futtatni a programunkat.</para>
@@ -560,7 +560,7 @@ int main(int argc, char *argv[])
     <section>
         <title>Mandelbrot nagyító és utazó Java nyelven</title>
         <para>
-            Megoldás forrása:  <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmazNagy%C3%ADt%C3%B3.java">https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmazNagy%C3%ADt%C3%B3.java</link> <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmaz.java">https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmaz.java</link>
+            Megoldás forrása: Kód: Bátfai Norbert <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmazNagy%C3%ADt%C3%B3.java">https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmazNagy%C3%ADt%C3%B3.java</link> <link xlink:href="https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmaz.java">https://github.com/theefues/prog1/blob/master/mandelbrot/MandelbrotHalmaz.java</link>
         </para>
         <para>Tutorált: Iloshvai Áron</para>
         <para>Fordítás: javac MandelbrotHalmazNagyító.java</para>
