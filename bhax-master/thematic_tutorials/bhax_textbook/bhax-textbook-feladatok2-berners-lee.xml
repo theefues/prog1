@@ -1,0 +1,64 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Berners-Lee!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>C++ és Java összehasonlítás</title>
+        <para>
+        C++: Benedek Zoltán, Levendovszky Tihamér Szoftverfejlesztés C++ nyelven
+        </para>
+		<para>
+        Java: Nyékyné Dr. Gaizler Judit et al. Java 2 útikalauz programozóknak 5.0 I-II
+		</para>
+        <para>
+        A Java nyelv jelölésrendszerét illetően sokmindent átvett a C/C++-ból, de sok figyelmet fordítottat a megbízhatóságra, valamint biztonságra. A Javában nincsenek mutatók, itt minden referencia, ellentétben a C/C++-al, ahol mindkettő megtalálható.
+        A Java programok futtatásához interpreterre van szükségünk. Ellentétben a C/C++-al, ahol fordítás után az adott platform architektúráján tudjuk futtatni a programot bármilyen plusz nélkül, a Javához szükség van a fordítás után egy másik programra
+        a futtatáshoz. Ez nagyban visszavesz a gyorsaságból, ezért a legtöbb interpreter futtatás előtt platformfüggő kódra fordítja át a programot, így felgyorsítva a folyamatot. A Java teljesen objektumorientált, objektumok és ezek mintáinak tekinthető osztályok 
+        összeségéből épül fel. Egy osztály mezőkből, változókból valamint függvényekből állhat. Csakúgy mint a C/C++-ban, Javában is a main() függvény hívódik meg a program futtatása után. A program argumentumai tömbbe kerülnek meghívásra. A Java hírnevét
+        a weboldalakon betöltött szerepének köszönheti. Képesek vagyunk vele úgynevezett appleteket létrehozni, amelyek HTML kódba ágyazva futtathatók webes környezetben. Mindkét nyelvben külön be kell tölteni a szükséges könyvtárakat, amelyeket használni akarunk. 
+        Mindkét nyelvben megtalálhatók változók különböző fajtákkal, mint például bool, char, int stb. Konstans megadására Javában a final kulcsszót használjuk, míg C/C++-ban a const kulcsszót. Javában külön osztályt kell létrehoznunk a konstatnsoknak, amelyre aztán
+        osztálynév.változónév-ként tudunk hivatkozni. Javában engedélyezett szinte bármilyen jelölés használata, köztük a görög vagy akár magyar karakterekkel hála a 16 bites unicode kódolásnak. Megjegyzések létrehozására a // vagy többsoros megjegyzéshez a /* */ jelöléseket
+        alkalmazhatjuk mindkét nyelvben.
+        </para>
+    </section>        
+
+    <section>
+        <title>Python</title>
+        <para>
+        Python: Forstner Bertalan, Ekler Péter, Kelényi Imre: Bevezetés a mobilprogramozásba.
+        Gyors prototípus-fejlesztés Python és Java nyelven (35-51 oldal), a kijelölt oldalakból élmény-olvasónapló
+        </para>
+		<para>
+        A Pythont Guido van Rossum alkotta meg 1990-ben, hogy megkönnyítse a fejlesztők dolgát. Eredetileg szkriptnyelvként van számon tartva, viszont összetettebb problémák megoldására is használható. Jól együttműködik más programozási nyelvekkel, egyszerű használni
+        és például a C/C++ vagy Java-val ellentétben, itt a tesztelés során a fordítási fázis kimarad, ezzel nagyban felgyorsítva a vele való munkát és szinte minden operációs rendszeren elérhető. Rengeteg, már előre megírt kódkönyvtárral rendelkezik, amely tovább
+        gyorsítja a fejlesztést. Ezek között van például, fájlkezelő, hálózatkezelő vagy felhasználói felület kialakítására szolgáló könyvtár is. A kód csoportosítása zárójelek nélkül történik, olyan kulcsszavakra, mint begin vagy end szintén nincs szükség, 
+        szegmentálásra sortörést, illetve tabulátorokat alkalmazunk, mindemellett nincs szükség változódefiniálásra sem. Egy utasítás a sor végéig tart, nincs szükség pontosvesszőre sem. Egy utasítás több sorba rendezésére a \ használható.
+        A sorokat tokenekre bondja, amelyek fajtái lehetnek azonosító, kulcsszó, operátor delimiter vagy literál. Megjegyzés beszúrására a # használható.
+        </para>
+        <para>
+        Pythonban nincs szükség változók explicit megadására. A program futás közben észleli a változó típusát az értéke alapján. Ezek lehetnek stringek, számok, ennesek, listák vagy szótárak. Számok itt is lehetnek egészek, lebegőpontosak vagy komplexek.
+        Stringek esetében a megadás idézőjelek között történik, az u betű használatával pedig Unicode szöveget is felvehetünk. Paraméteres megadásra is van lehetőség. Az Ennes objektumok tartalma vesszővel vannak elválasztva. Általában zárójelek közé írjuk őket.
+        A listákkal ugyanez a helyzet, csak sima zárójel helyett szögletes zárójelet használunk. A szótárak egy kulcs:értékpárral rendelkeznek, amely párok között kettőspont van, a különböző párok között pedig vessző. Ezeket kapcsos zárójelbe rakjuk.
+        </para>
+        <para>
+        A Pythonban változók alatt objektumokra mutató referenciákat értünk. Típusai nincsenek, ezért bármire hivatkozhatnak. Ha minden hivatkozást törülünk egy objektumhoz, akkor a lefoglalt memóriaterület automatikusan felszabadul. Értékmegadás az = operátor segítségével
+        lehetséges. A del kulcsszóval törölhetünk egy hozzárendelést. Itt is léteznek globális és lokális változók. Ha egy függvényen belül vesszük fel, az lokálisnak számít, a globális deklaráláshoz a változó neve elé kell tenni a global kulcsszót. A beépített típusok közötti
+        konverzió lehetséges, így akár stringekből is készíthetünk számokat. A szekvenciákon alkalmazhatóak műveletek, valamint használhatók beépített függvények rajta. Például a len visszaadja az adott szekvencia hosszát, a min vagy a max pedig a szélső értékeit mutatja meg.
+        Az elemeihez indexeléssel lehet hozzáféni szögletes zárójellel, de akár intervallumot is megadhatunk a : segítségével. Negatív érték esetén a számolás a szekvencia végétől kezdődik. Ezzel a módszerrel törölhetjük is az adott indexet a del kulcsszóval.
+        </para>
+        <para>
+        A print funkcióval írhatunk ki stringet az outputra, a tokeneket veszővel kell elválasztani. Támogatja a logikai elágazásokat, valamint a ciklusokat. A ciklusok alkalmazhatóak különböző szekvenciákon belüli értékek keresésére is, amelyeket kulcs:értékpáronként kapunk
+        vissza. A range függvénnyel megadhatunk egy listát, amelyben 0-tól x-ig terjednek a számok. A második paraméter megadásával x-től y-ig terjedő számsorozatot kapunk, majd ha megadunk egy harmadik paramétert, a léptéket is meg tudjuk határozni, hogy mennyivel nőjön a számsor.
+        A while ciklust addig tudjuk futtatni, amíg a benne lévő feltétel nem teljesül. Lehetőségünk van címkézésre, ahova a goto parancs segítségével bármikor oda tudunk ugrani a kódon belül.
+        </para>
+        <para>
+        Saját függvény definiálására a def kulcsszót használjuk. Ezekre értékként is tekinthetünk és továbbadhatjuk akár más függvényeknek is. Rendelkezhetnek paraméterekkel, amelynek alapértelmezett értéket is adhatunk. Ezek érték szerint adódnak tovább, kivéve a listák, vagy szótárak
+        amelyeket ha függvényen belül variálunk, az hatással lesz az eredetire is. A paraméterek a felírt sorrendben követik egymást megadás szempontjából. A függvények visszatérési értékekkel is rendelkeznek.
+        A Pyhton támogatja az objektumorientált fejlesztési eljárásokat, így lehetőségünk van osztályokat létrehozni. Az osztályon belül definiálhatunk objektumokat és függvényeket, amik ez után az adott osztály részét képezik és rajtuk keresztül lehet hivatkozni rájuk.
+        </para>
+    </section>  
+</chapter>                
